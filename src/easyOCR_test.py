@@ -18,13 +18,15 @@ result = reader.readtext(img_path)
 print(result)
 
 # 인식된 텍스트 확인해보기
-THRESHOLD = 0.5
+THRESHOLD = 0.3
 
 for bbox, text, conf in result:
     if conf >= THRESHOLD:
         print(text)
         cv2.rectangle(img, pt1=bbox[0], pt2=bbox[2], color=(0,255,0), thickness=2)
-    plt.figure(figsize=(8,8))
-    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
+
+
+plt.figure(figsize=(8,8))
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.axis('off')
+plt.show()
